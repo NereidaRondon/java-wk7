@@ -14,10 +14,10 @@ public class DbConnection {
 	private static final int PORT = 3306;
 	
 	public static Connection getConnection() {
-		String url = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD);
-		System.out.println("Connecting with url=" + url);
+		String uri = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD);
+		System.out.println("Connecting with url=" + uri);
 		try {
-			Connection conn = DriverManager.getConnection(url);
+			Connection conn = DriverManager.getConnection(uri);
 			System.out.println("Successfully obtained connection!");
 			return conn;
 		} catch (SQLException e) {
