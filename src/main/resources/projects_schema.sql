@@ -7,16 +7,16 @@ DROP TABLE IF EXISTS project;
 CREATE TABLE project (
 	project_id INT NOT NULL,
 	project_name VARCHAR(128) NOT NULL,
-	estimated_hours INT,
-	actual_hours INT,
-	difficulty TEXT,
+	estimated_hours DECIMAL(7,2),
+	actual_hours DECIMAL(7,2),
+	difficulty INT,
 	notes TEXT,
 	PRIMARY KEY (project_id)
 );
 
 CREATE TABLE category (
 	category_id INT NOT NULL,
-	category_name VARCHAR(64) NOT NULL,
+	category_name VARCHAR(128) NOT NULL,
 	PRIMARY KEY (category_id)
 );
 
@@ -31,8 +31,8 @@ CREATE TABLE project_category (
 CREATE TABLE material (
 	material_id INT NOT NULL,
 	project_id INT NOT NULL,
-	material_name VARCHAR(64) NOT NULL,
-	amount_required DECIMAL(7, 2),
+	material_name VARCHAR(128) NOT NULL,
+	num_required INT,
 	cost DECIMAL(7, 2),
 	PRIMARY KEY (material_id),
 	FOREIGN KEY (project_id) REFERENCES project (project_id) ON DELETE CASCADE
