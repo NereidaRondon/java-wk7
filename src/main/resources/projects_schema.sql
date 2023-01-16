@@ -7,11 +7,10 @@ DROP TABLE IF EXISTS project;
 CREATE TABLE project (
 	project_id INT NOT NULL,
 	project_name VARCHAR(128) NOT NULL,
+	estimated_hours INT,
+	actual_hours INT,
+	difficulty TEXT,
 	notes TEXT,
-	num_servings INT,
-	prep_time TIME,
-	cook_time TIME,
-	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (project_id)
 );
 
@@ -33,8 +32,8 @@ CREATE TABLE material (
 	material_id INT NOT NULL,
 	project_id INT NOT NULL,
 	material_name VARCHAR(64) NOT NULL,
-	instruction VARCHAR(64),
-	amount DECIMAL(7, 2),
+	amount_required DECIMAL(7, 2),
+	cost DECIMAL(7, 2),
 	PRIMARY KEY (material_id),
 	FOREIGN KEY (project_id) REFERENCES project (project_id) ON DELETE CASCADE
 );
