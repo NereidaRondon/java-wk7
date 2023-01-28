@@ -3,9 +3,6 @@ package projects.exception;
 @SuppressWarnings("serial")
 public class DbException extends RuntimeException {
 
-	public DbException() {	
-	}
-
 	public DbException(String message) {
 		super(message);
 	}
@@ -18,8 +15,8 @@ public class DbException extends RuntimeException {
 		super(message, cause);
 	}
 
-	public DbException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
+//	public DbException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+//		super(message, cause, enableSuppression, writableStackTrace);
+//	}
 
 }
